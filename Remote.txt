@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>This is for new Remote file </title>
+</head>
+<body>
+
+<h1>This is for new Remote file /h1>
+<p>This is for new Remote file .</p>
+
+</body>
+</html>
