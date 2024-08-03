@@ -1,0 +1,40 @@
+name: GitHub actions demo
+run-name: Testing our Github actions
+
+on: [push]
+
+env:
+  owner_name: ABhi
+
+jobs:
+  basic_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job basic_workflow is executing as part of new workflow - from $owner_name"
+
+Runner documentation:
+https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners
+
+
+Conditional Workflow:
+
+Workflow file name: conditional-workflow.yml
+Content:
+name: Conditional workflow execution
+
+on: 
+  push:
+    branches:
+      - main
+      - demo*
+      
+jobs:
+  main_job:
+    if: startsWith(github.ref, 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "---JOB EXECUTION ON MAIN BRANCH PUSH---"
+      - uses: actions/checkout@v4.1.7
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
